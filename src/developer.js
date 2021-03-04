@@ -1,5 +1,6 @@
 import got from 'got'
 import iso from 'iso-3166-1'
+import { application } from './library/normalize.js'
 
 /**
  * @param {Object} param0
@@ -43,6 +44,6 @@ export default async function developer(
     applications:
       body.resultCount === 0
         ? []
-        : body.results.slice(1, body.results.length - 1),
+        : body.results.slice(1, body.results.length - 1).map(application),
   }
 }
