@@ -1,4 +1,5 @@
 import got from 'got'
+import iso from 'iso-3166-1'
 import { sort } from './library/fixtures.js'
 import { reviewList } from './library/normalize.js'
 
@@ -14,6 +15,12 @@ export default async function reviews(
   { id, page = 1, sort_by = sort.RECENT, country = 'us' },
   options = {},
 ) {
+  const iso_normalized = iso.whereAlpha2(country)
+
+  if (!iso_normalized) {
+    throw new Error(`Invalid country id`)
+  }
+
   if (!id) {
     throw new Error(`Id should be defined`)
   }
@@ -29,7 +36,7 @@ export default async function reviews(
   }
 
   const { body } = await got(
-    `https://itunes.apple.com/${country.toUpperCase()}/rss/customerreviews/page=${page}/id=${id}/sortby=${sort_by}/json`,
+    `https://itunes.apple.com/${iso_normalized.alpha2}/rss/customerreviews/page=${page}/id=${id}/sortby=${sort_by}/json`,
     {
       method: 'GET',
       responseType: 'json',

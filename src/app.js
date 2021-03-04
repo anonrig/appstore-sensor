@@ -1,6 +1,7 @@
 import got from 'got'
 import { application } from './library/normalize.js'
 import ratings from './ratings.js'
+import iso from 'iso-3166-1'
 
 /**
  * @param {Object} param0
@@ -14,11 +15,17 @@ export default async function app(
   { id, country = 'US', language = 'en', include_ratings = false },
   options = {},
 ) {
+  const iso_normalized = iso.whereAlpha2(country)
+
+  if (!iso_normalized) {
+    throw new Error(`Invalid country id`)
+  }
+
   const { body } = await got('https://itunes.apple.com/lookup', {
     method: 'GET',
     searchParams: {
       id,
-      country,
+      country: iso_normalized.alpha2,
       entity: 'software',
       lang: language,
     },
@@ -37,7 +44,11 @@ export default async function app(
   const normalized = application(body.results[0])
 
   if (include_ratings) {
-    return Object.assign({}, normalized, await ratings({ id, country }))
+    return Object.assign(
+      {},
+      normalized,
+      await ratings({ id, country: iso_normalized.alpha2 }),
+    )
   }
 
   return normalized
