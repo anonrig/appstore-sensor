@@ -1,8 +1,8 @@
 name: Test
 on:
-  pull_request:
+  push:
     branches:
-    - master
+      - master
 jobs:
   release:
     name: Release

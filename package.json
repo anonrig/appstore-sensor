@@ -20,13 +20,20 @@
   "scripts": {
     "test": "node --experimental-vm-modules node_modules/.bin/jest"
   },
-  "keywords": ["appstore connect", "apple", "reviews", "ratings", "itunes api"],
+  "keywords": [
+    "appstore connect",
+    "apple",
+    "reviews",
+    "ratings",
+    "itunes api"
+  ],
   "dependencies": {
     "cheerio": "^1.0.0-rc.5",
     "got": "^11.8.2"
   },
   "devDependencies": {
     "@types/jest": "^26.0.20",
+    "coveralls": "^3.1.0",
     "eslint": "^7.21.0",
     "eslint-config-prettier": "^8.1.0",
     "eslint-plugin-import": "^2.22.1",
@@ -45,7 +52,9 @@
       "text",
       "clover"
     ],
-    "testPathIgnorePatterns": ["src/library"]
+    "testPathIgnorePatterns": [
+      "src/library"
+    ]
   },
   "prettier": {
     "singleQuote": true,
@@ -60,7 +69,11 @@
       "plugin:import/warnings",
       "plugin:security/recommended"
     ],
-    "plugins": ["prettier", "import", "security"],
+    "plugins": [
+      "prettier",
+      "import",
+      "security"
+    ],
     "parserOptions": {
       "sourceType": "module",
       "ecmaFeatures": {
@@ -73,7 +86,13 @@
       "es6": true
     },
     "rules": {
-      "import/extensions": ["error", "always", { "ignorePackages": true }]
+      "import/extensions": [
+        "error",
+        "always",
+        {
+          "ignorePackages": true
+        }
+      ]
     }
   }
 }
