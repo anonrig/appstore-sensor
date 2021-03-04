@@ -13,6 +13,17 @@ describe('app', () => {
     }
   })
 
+  test('should throw error on not found', async (done) => {
+    try {
+      await app({ id: '123456789' })
+    } catch (error) {
+      expect(error).toBeDefined()
+      expect(error.message).toEqual('Application not found')
+    } finally {
+      done()
+    }
+  })
+
   test('should include ratings', async (done) => {
     try {
       const application = await app({ id: 284882215, include_ratings: true })

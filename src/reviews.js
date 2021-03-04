@@ -24,7 +24,7 @@ export default async function reviews(
 
   if (!Object.values(sort).includes(sort_by)) {
     throw new Error(
-      `Invalid sort field. Proper fields are ${Object.values(sort).join(', ')}`,
+      `Invalid sort field. Proper fields are ${Object.values(sort).join(', ')}.`,
     )
   }
 
