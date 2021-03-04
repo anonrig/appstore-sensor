@@ -1,0 +1,79 @@
+{
+  "name": "appstore-sensor",
+  "version": "0.1.0",
+  "description": "Apple AppStore application, reviews and ratings fetcher for Node.js",
+  "author": "Yagiz Nizipli <yagiz@nizipli.com>",
+  "license": "MIT",
+  "homepage": "https://github.com/socketkit/appstore-sensor#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/socketkit/appstore-sensor.git"
+  },
+  "bugs": {
+    "url": "https://github.com/socketkit/appstore-sensor/issues"
+  },
+  "engines": {
+    "node": ">=15.0.0"
+  },
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "node --experimental-vm-modules node_modules/.bin/jest"
+  },
+  "keywords": ["appstore connect", "apple", "reviews", "ratings", "itunes api"],
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.5",
+    "got": "^11.8.2"
+  },
+  "devDependencies": {
+    "@types/jest": "^26.0.20",
+    "eslint": "^7.21.0",
+    "eslint-config-prettier": "^8.1.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-prettier": "^3.3.1",
+    "eslint-plugin-security": "^1.4.0",
+    "jest": "^26.6.3",
+    "prettier": "^2.2.1"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "collectCoverage": true,
+    "coverageProvider": "v8",
+    "coverageReporters": [
+      "json",
+      "lcov",
+      "text",
+      "clover"
+    ],
+    "testPathIgnorePatterns": ["src/library"]
+  },
+  "prettier": {
+    "singleQuote": true,
+    "trailingComma": "all",
+    "semi": false,
+    "tabWidth": 2
+  },
+  "eslintConfig": {
+    "extends": [
+      "plugin:prettier/recommended",
+      "plugin:import/errors",
+      "plugin:import/warnings",
+      "plugin:security/recommended"
+    ],
+    "plugins": ["prettier", "import", "security"],
+    "parserOptions": {
+      "sourceType": "module",
+      "ecmaFeatures": {
+        "modules": true
+      },
+      "ecmaVersion": 2020
+    },
+    "env": {
+      "node": true,
+      "es6": true
+    },
+    "rules": {
+      "import/extensions": ["error", "always", { "ignorePackages": true }]
+    }
+  }
+}
