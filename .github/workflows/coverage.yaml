@@ -18,3 +18,5 @@ jobs:
         run: npm install
       - name: Check tests & Calculate coverage
         run: npm run coverage
+        with:
+          COVERALLS_REPO_TOKEN: ${{ secrets.COVERALLS_REPO_TOKEN }}
