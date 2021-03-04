@@ -2,7 +2,7 @@ name: Test
 on:
   push:
     branches:
-      - master
+      - main
 jobs:
   release:
     name: Release
@@ -16,9 +16,5 @@ jobs:
           node-version: '15'
       - name: Install dependencies
         run: npm install
-      - name: Check tests
-        run: npm test
-      - name: Coveralls
-        uses: coverallsapp/github-action@master
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Check tests & Calculate coverage
+        run: npm run coverage
