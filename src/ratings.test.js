@@ -13,4 +13,14 @@ describe('ratings', () => {
       done()
     }
   })
+
+  test('should set request options', async (done) => {
+    try {
+      await ratings({ id: 284882215, country: 'us' }, { method: 'DELETE' })
+    } catch (error) {
+      expect(error).toBeDefined()
+    } finally {
+      done()
+    }
+  })
 })

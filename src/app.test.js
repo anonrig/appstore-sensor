@@ -28,4 +28,14 @@ describe('app', () => {
       done()
     }
   })
+
+  test('should set request options', async (done) => {
+    try {
+      await app({ id: 284882215 }, { method: 'DELETE' })
+    } catch (error) {
+      expect(error).toBeDefined()
+    } finally {
+      done()
+    }
+  })
 })

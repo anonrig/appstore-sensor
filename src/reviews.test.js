@@ -12,4 +12,17 @@ describe('reviews', () => {
       done()
     }
   })
+
+  test('should set request options', async (done) => {
+    try {
+      await reviews(
+        { id: 284882215, country: 'us', page: 1 },
+        { method: 'DELETE' },
+      )
+    } catch (error) {
+      expect(error).toBeDefined()
+    } finally {
+      done()
+    }
+  })
 })

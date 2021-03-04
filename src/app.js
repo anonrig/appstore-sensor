@@ -1,14 +1,21 @@
-import got from 'got/dist/source'
+import got from 'got'
 import { application } from './library/normalize.js'
 import ratings from './ratings.js'
 
-export default async function app({
-  id,
-  country = 'US',
-  language = 'en',
-  include_ratings = false,
-}) {
-  const { body } = await got.get('https://itunes.apple.com/lookup', {
+/**
+ * @param {Object} param0
+ * @param {String|Number} param0.id - Application id
+ * @param {String} [param0.country] - Country
+ * @param {String} [param0.language=en] - Country
+ * @param {Boolean} [param0.include_ratings=false] - Should include ratings
+ * @param {import("got").Options} [options={}] - Got package options.
+ */
+export default async function app(
+  { id, country = 'US', language = 'en', include_ratings = false },
+  options = {},
+) {
+  const { body } = await got('https://itunes.apple.com/lookup', {
+    method: 'GET',
     searchParams: {
       id,
       country,
@@ -16,6 +23,7 @@ export default async function app({
       lang: language,
     },
     responseType: 'json',
+    ...options,
   })
 
   if (body.resultCount === 0) {
