@@ -18,8 +18,8 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "test": "node --experimental-vm-modules node_modules/.bin/jest",
-    "coverage": "node --experimental-vm-modules node_modules/.bin/jest --coverage && coveralls < coverage/lcov.info"
+    "test": "node --experimental-vm-modules --no-warnings node_modules/.bin/jest",
+    "coverage": "node --experimental-vm-modules --no-warnings node_modules/.bin/jest --coverage && coveralls < coverage/lcov.info"
   },
   "keywords": [
     "appstore connect",
