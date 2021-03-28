@@ -1,7 +1,5 @@
 import got from 'got'
 import iso from 'iso-3166-1'
-import { markets } from './library/fixtures.js'
-import { parseRatings } from './library/parser.js'
 
 /**
  * @param {Object} param0
@@ -16,16 +14,13 @@ export default async function ratings({ id, country }, options = {}) {
     throw new Error(`Invalid country id`)
   }
 
-  const storeId = markets[iso_normalized.alpha2.toUpperCase()] || '143441'
-  const url = `https://itunes.apple.com/${iso_normalized.alpha2}/customer-reviews/id${id}`
+  const url = `https://apps.apple.com/${iso_normalized.alpha2}/app/id${id}`
   const { body } = await got(url, {
     method: 'GET',
     searchParams: {
-      'displayable-kind': 11,
+      dataOnly: true,
     },
-    headers: {
-      'X-Apple-Store-Front': `${storeId},12`,
-    },
+    responseType: 'json',
     ...options,
   })
 
@@ -33,5 +28,13 @@ export default async function ratings({ id, country }, options = {}) {
     throw new Error(`Application not found`)
   }
 
-  return parseRatings(body)
+  // eslint-disable-next-line security/detect-object-injection
+  const { ratingCount, ratingCountList } = body.storePlatformData[
+    'webexp-product'
+  ].results[id].userRating
+
+  return {
+    ratings: ratingCount,
+    histogram: ratingCountList,
+  }
 }
