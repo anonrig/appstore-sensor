@@ -1,18 +1,15 @@
 <h1 align="center">Welcome to Appstore Sensor 👋</h1>
 <p>
-  <img alt="Version" src="https://img.shields.io/badge/version-0.1.0-blue.svg?cacheSeconds=2592000" />
+  <img alt="Version" src="https://img.shields.io/badge/version-0.5.0-blue.svg?cacheSeconds=2592000" />
   <img src="https://img.shields.io/badge/node-%3E%3D15.0.0-blue.svg" />
   <a href='https://coveralls.io/github/socketkit/appstore-sensor?branch=main'>
     <img src='https://coveralls.io/repos/github/socketkit/appstore-sensor/badge.svg?branch=main' alt='Coverage Status' />
-  </a>
-  <a href="https://github.com/socketkit/appstore-sensor#readme" target="_blank">
-    <img alt="Documentation" src="https://img.shields.io/badge/documentation-yes-brightgreen.svg" />
   </a>
   <a href="https://github.com/socketkit/appstore-sensor/graphs/commit-activity" target="_blank">
     <img alt="Maintenance" src="https://img.shields.io/badge/Maintained%3F-yes-green.svg" />
   </a>
   <a href="https://github.com/socketkit/appstore-sensor/blob/main/LICENSE" target="_blank">
-    <img alt="License: MIT" src="https://img.shields.io/github/license/socketkit/Appstore Sensor" />
+    <img alt="License: MIT" src="https://img.shields.io/github/license/socketkit/appstore-sensor" />
   </a>
   <a href="https://twitter.com/yagiznizipli" target="_blank">
     <img alt="Twitter: yagiznizipli" src="https://img.shields.io/twitter/follow/yagiznizipli.svg?style=social" />
@@ -44,7 +41,7 @@ npm test
 👤 **Yagiz Nizipli <yagiz@nizipli.com>**
 
 * Website: https://socketkit.com
-* Twitter: [@yagiznizipli](https://twitter.com/yagiznizipli)
+* Twitter: [@yagiznizipli](https://twitter.com/socketkitcom)
 * Github: [@socketkit](https://github.com/socketkit)
 * LinkedIn: [@yagiznizipli](https://linkedin.com/in/yagiznizipli)
 
