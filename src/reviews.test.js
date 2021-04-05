@@ -7,9 +7,13 @@ describe('reviews', () => {
       expect(results).toBeInstanceOf(Array)
       expect(results.length).toEqual(50)
       results.forEach((result) => {
+        expect(result.id).toBeDefined()
         expect(result.text).toBeTruthy()
         expect(result.html).toBeTruthy()
         expect(result.updatedAt).toBeDefined()
+        expect(typeof result.html).toBe('string')
+        expect(typeof result.text).toBe('string')
+        expect(result.html).toContain('table')
         expect(typeof result.score).toBe('number')
       })
     } catch (error) {

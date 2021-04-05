@@ -47,8 +47,8 @@ export function reviewList(results) {
     version: review['im:version'],
     score: parseInt(review['im:rating']),
     title: review.title,
-    text: review.content.find((c) => c.type === 'text'),
-    html: review.content.find((c) => c.type === 'html'),
+    text: review.content.find((c) => c.type === 'text').text,
+    html: review.content.find((c) => c.type === 'html').text,
     url: review.link.href,
     updatedAt: review.updated,
   }))
