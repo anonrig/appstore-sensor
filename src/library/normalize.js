@@ -42,12 +42,14 @@ export function reviewList(results) {
   const reviews = ensureArray(results.feed.entry)
   return reviews.map((review) => ({
     id: review.id.label,
-    userName: review.author.name.label,
-    userUrl: review.author.uri.label,
-    version: review['im:version'].label,
-    score: parseInt(review['im:rating'].label),
-    title: review.title.label,
-    text: review.content.label,
-    url: review.link.attributes.href,
+    userName: review.author.name,
+    userUrl: review.author.uri,
+    version: review['im:version'],
+    score: parseInt(review['im:rating']),
+    title: review.title,
+    text: review.content.find((c) => c.type === 'text'),
+    html: review.content.find((c) => c.type === 'html'),
+    url: review.link.href,
+    updatedAt: review.updated,
   }))
 }

@@ -1,8 +1,9 @@
 import got from 'got'
 import iso from 'iso-3166-1'
+import parser from 'fast-xml-parser'
+
 import { sort } from './library/fixtures.js'
 import { reviewList } from './library/normalize.js'
-
 /**
  * @param {Object} param0
  * @param {String|Number} param0.id - Application id
@@ -31,18 +32,43 @@ export default async function reviews(
 
   if (!Object.values(sort).includes(sort_by)) {
     throw new Error(
-      `Invalid sort field. Proper fields are ${Object.values(sort).join(', ')}.`,
+      `Invalid sort field. Proper fields are ${Object.values(sort).join(
+        ', ',
+      )}.`,
     )
   }
 
   const { body } = await got(
-    `https://itunes.apple.com/${iso_normalized.alpha2}/rss/customerreviews/page=${page}/id=${id}/sortby=${sort_by}/json`,
+    `https://itunes.apple.com/${iso_normalized.alpha2}/rss/customerreviews/page=${page}/id=${id}/sortby=${sort_by}/xml`,
     {
       method: 'GET',
-      responseType: 'json',
       ...options,
     },
   )
 
-  return reviewList(body)
+  try {
+    const parsed = parser.parse(
+      body,
+      {
+        attributeNamePrefix: '',
+        trimValues: true,
+        parseNodeValue: true,
+        parseAttributeValue: false,
+        textNodeName: 'text',
+        ignoreAttributes: false,
+        ignoreNameSpace: false,
+        format: false,
+        supressEmptyNode: true,
+        arrayMode: false,
+      },
+      true,
+    )
+
+    return reviewList(parsed)
+  } catch (error) {
+    throw new Error(
+      'XML validation failed on review response from AppStore',
+      error.message,
+    )
+  }
 }

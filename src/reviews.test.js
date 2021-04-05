@@ -6,6 +6,12 @@ describe('reviews', () => {
       const results = await reviews({ id: 284882215, country: 'us', page: 1 })
       expect(results).toBeInstanceOf(Array)
       expect(results.length).toEqual(50)
+      results.forEach((result) => {
+        expect(result.text).toBeTruthy()
+        expect(result.html).toBeTruthy()
+        expect(result.updatedAt).toBeDefined()
+        expect(typeof result.score).toBe('number')
+      })
     } catch (error) {
       expect(error).toBeUndefined()
     } finally {

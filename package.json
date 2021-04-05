@@ -29,6 +29,7 @@
     "itunes api"
   ],
   "dependencies": {
+    "fast-xml-parser": "^3.19.0",
     "got": "^11.8.2",
     "iso-3166-1": "^2.0.1"
   },
