@@ -41,7 +41,7 @@ export function application(app) {
 export function reviewList(results) {
   const reviews = ensureArray(results.feed.entry)
   return reviews.map((review) => ({
-    id: review.id.label,
+    id: review.id,
     userName: review.author.name,
     userUrl: review.author.uri,
     version: review['im:version'],
