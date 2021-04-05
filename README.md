@@ -1,6 +1,6 @@
 <h1 align="center">Welcome to Appstore Sensor 👋</h1>
 <p>
-  <img alt="Version" src="https://img.shields.io/badge/version-0.5.0-blue.svg?cacheSeconds=2592000" />
+  <img alt="Version" src="https://img.shields.io/badge/version-0.5.1-blue.svg?cacheSeconds=2592000" />
   <img src="https://img.shields.io/badge/node-%3E%3D15.0.0-blue.svg" />
   <a href='https://coveralls.io/github/socketkit/appstore-sensor?branch=main'>
     <img src='https://coveralls.io/repos/github/socketkit/appstore-sensor/badge.svg?branch=main' alt='Coverage Status' />
@@ -40,10 +40,10 @@ npm test
 
 👤 **Yagiz Nizipli <yagiz@nizipli.com>**
 
-* Website: https://socketkit.com
-* Twitter: [@yagiznizipli](https://twitter.com/socketkitcom)
-* Github: [@socketkit](https://github.com/socketkit)
-* LinkedIn: [@yagiznizipli](https://linkedin.com/in/yagiznizipli)
+- Website: https://socketkit.com
+- Twitter: [@yagiznizipli](https://twitter.com/socketkitcom)
+- Github: [@socketkit](https://github.com/socketkit)
+- LinkedIn: [@yagiznizipli](https://linkedin.com/in/yagiznizipli)
 
 ## 🤝 Contributing
 
