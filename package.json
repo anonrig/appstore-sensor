@@ -19,7 +19,8 @@
   "type": "module",
   "scripts": {
     "test": "node --experimental-vm-modules --no-warnings node_modules/.bin/jest",
-    "coverage": "node --experimental-vm-modules --no-warnings node_modules/.bin/jest --coverage && coveralls < coverage/lcov.info"
+    "coverage": "node --experimental-vm-modules --no-warnings node_modules/.bin/jest --coverage && coveralls < coverage/lcov.info",
+    "lint": "eslint src/**/*.js --fix"
   },
   "keywords": [
     "appstore connect",
