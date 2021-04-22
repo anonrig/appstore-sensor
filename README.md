@@ -41,7 +41,7 @@ npm test
 👤 **Yagiz Nizipli <yagiz@nizipli.com>**
 
 - Website: https://socketkit.com
-- Twitter: [@yagiznizipli](https://twitter.com/socketkitcom)
+- Twitter: [@socketkitcom](https://twitter.com/socketkitcom)
 - Github: [@socketkit](https://github.com/socketkit)
 - LinkedIn: [@yagiznizipli](https://linkedin.com/in/yagiznizipli)
 
