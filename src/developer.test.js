@@ -1,7 +1,7 @@
 import developer from './developer.js'
 
 describe('developer', () => {
-  test('get developer', async (done) => {
+  test('get developer', async () => {
     try {
       const { account, applications } = await developer({ id: 284882218 })
       expect(account).toBeDefined()
@@ -9,40 +9,35 @@ describe('developer', () => {
       expect(applications.length > 0).toBeTruthy()
     } catch (error) {
       expect(error).toBeUndefined()
-    } finally {
-      done()
     }
   })
 
-  test('should throw error on invalid id', async (done) => {
+  test('should throw error on invalid id', async () => {
     try {
       await developer({ id: null })
+      throw new Error(`Invalid`)
     } catch (error) {
       expect(error).toBeDefined()
       expect(error.message).toEqual('Id is required')
-    } finally {
-      done()
     }
   })
 
-  test('should throw error on invalid country', async (done) => {
+  test('should throw error on invalid country', async () => {
     try {
       await developer({ id: 284882215, country: 'HELLO' })
+      throw new Error(`Invalid`)
     } catch (error) {
       expect(error).toBeDefined()
       expect(error.message).toEqual('Invalid country id')
-    } finally {
-      done()
     }
   })
 
-  test('should set request options', async (done) => {
+  test('should set request options', async () => {
     try {
       await developer({ id: 284882215 }, { method: 'DELETE' })
+      throw new Error(`Invalid`)
     } catch (error) {
       expect(error).toBeDefined()
-    } finally {
-      done()
     }
   })
 })

@@ -1,7 +1,7 @@
 import reviews from './reviews.js'
 
 describe('reviews', () => {
-  test('should return proper reviews list', async (done) => {
+  test('should return proper reviews list', async () => {
     try {
       const results = await reviews({ id: 284882215, country: 'us', page: 1 })
       expect(results).toBeInstanceOf(Array)
@@ -18,47 +18,42 @@ describe('reviews', () => {
       })
     } catch (error) {
       expect(error).toBeUndefined()
-    } finally {
-      done()
     }
   })
 
-  test('should throw error on missing id', async (done) => {
+  test('should throw error on missing id', async () => {
     try {
       await reviews({})
+      throw new Error(`Invalid`)
     } catch (error) {
       expect(error).toBeDefined()
       expect(error.message).toEqual('Id should be defined')
-    } finally {
-      done()
     }
   })
 
-  test('should throw error on invalid sort field', async (done) => {
+  test('should throw error on invalid sort field', async () => {
     try {
       await reviews({ id: 284882215, sort_by: 'hello-world' })
+      throw new Error(`Invalid`)
     } catch (error) {
       expect(error).toBeDefined()
       expect(error.message).toEqual(
         'Invalid sort field. Proper fields are mostRecent, mostHelpful.',
       )
-    } finally {
-      done()
     }
   })
 
-  test('should throw error on invalid page', async (done) => {
+  test('should throw error on invalid page', async () => {
     try {
       await reviews({ id: 284882215, page: 100 })
+      throw new Error(`Invalid`)
     } catch (error) {
       expect(error).toBeDefined()
       expect(error.message).toEqual('Page should be between 1 and 10.')
-    } finally {
-      done()
     }
   })
 
-  test('should set request options', async (done) => {
+  test('should set request options', async () => {
     try {
       await reviews(
         { id: 284882215, country: 'us', page: 1 },
@@ -66,8 +61,6 @@ describe('reviews', () => {
       )
     } catch (error) {
       expect(error).toBeDefined()
-    } finally {
-      done()
     }
   })
 })
