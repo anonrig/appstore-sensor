@@ -35,15 +35,15 @@
     "iso-3166-1": "^2.0.1"
   },
   "devDependencies": {
-    "@types/jest": "^26.0.23",
-    "coveralls": "^3.1.0",
-    "eslint": "^7.27.0",
+    "@types/jest": "^26.0.24",
+    "coveralls": "^3.1.1",
+    "eslint": "^7.31.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-import": "^2.23.4",
     "eslint-plugin-prettier": "^3.4.0",
     "eslint-plugin-security": "^1.4.0",
-    "jest": "^27.0.4",
-    "prettier": "^2.3.0"
+    "jest": "^27.0.6",
+    "prettier": "^2.3.2"
   },
   "jest": {
     "testEnvironment": "node",
