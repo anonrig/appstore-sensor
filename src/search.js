@@ -1,6 +1,5 @@
 import got from 'got'
 import { application } from './library/normalize.js'
-import ratings from './ratings.js'
 import iso from 'iso-3166-1'
 
 /**

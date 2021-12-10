@@ -1,6 +1,5 @@
 import got from 'got'
 import { application } from './library/normalize.js'
-import ratings from './ratings.js'
 import iso from 'iso-3166-1'
 
 /**
@@ -8,11 +7,10 @@ import iso from 'iso-3166-1'
  * @param {String|Number} param0.id - Application id
  * @param {String} [param0.country] - Country
  * @param {String} [param0.language=en] - Country
- * @param {Boolean} [param0.include_ratings=false] - Should include ratings
  * @param {import("got").Options} [options={}] - Got package options.
  */
 export default async function app(
-  { id, country = 'US', language = 'en', include_ratings = false },
+  { id, country = 'US', language = 'en' },
   options = {},
 ) {
   const iso_normalized = iso.whereAlpha2(country)
@@ -41,15 +39,5 @@ export default async function app(
     throw new Error(`Response expectation failed from Apple servers.`)
   }
 
-  const normalized = application(body.results[0])
-
-  if (include_ratings) {
-    return Object.assign(
-      {},
-      normalized,
-      await ratings({ id, country: iso_normalized.alpha2 }),
-    )
-  }
-
-  return normalized
+  return application(body.results[0])
 }
