@@ -1,6 +1,6 @@
 {
   "name": "appstore-sensor",
-  "version": "0.6.1",
+  "version": "0.6.2",
   "description": "Apple AppStore application, reviews and ratings fetcher for Node.js",
   "author": "Yagiz Nizipli <yagiz@nizipli.com>",
   "license": "MIT",
